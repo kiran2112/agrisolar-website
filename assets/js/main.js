@@ -99,7 +99,7 @@
 		}
 		
 		// Start the slideshow
-		setInterval(showNextSlide, 5000); // 5 seconds interval
+		setInterval(showNextSlide, 2000); // 2 seconds interval
 	}
 	
 	// Initialize when DOM is loaded
