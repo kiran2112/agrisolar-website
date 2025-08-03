@@ -11,6 +11,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Header background appears on scroll */
+			#header:not(.alt) {
+				background-color: #f0f8f0 !important;
+			}
+			
+			/* Ensure header has smooth transition */
+			#header {
+				transition: background-color 0.3s ease;
+			}
+		</style>
 	</head>
 	<body class="landing is-preload">
 
@@ -19,18 +30,18 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html"><img src="images/AgriSolar-logo.jpg" alt="AgriSolar" style="height: 40px; vertical-align: middle; margin-right: 10px;" />AgriSolar</a></h1>
+						<h1><a href="index.html" style="color: #2d5a2d;"><img src="images/AgriSolar-logo-with-background.png" alt="AgriSolar" style="height: 40px; vertical-align: middle; margin-right: 10px;" />AgriSolar</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
+									<a href="#menu" class="menuToggle" style="color: #2d5a2d;"><span>Menu</span></a>
+									<div id="menu" style="background-color: #f0f8f0;">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">About</a></li>
-											<li><a href="elements.html">Services</a></li>
-											<li><a href="#">Contact</a></li>
-											<li><a href="#">Get Quote</a></li>
+											<li><a href="index.html" style="color: #2d5a2d;">Home</a></li>
+											<li><a href="generic.html" style="color: #2d5a2d;">About</a></li>
+											<li><a href="elements.html" style="color: #2d5a2d;">Services</a></li>
+											<li><a href="#" style="color: #2d5a2d;">Contact</a></li>
+											<li><a href="#" style="color: #2d5a2d;">Get Quote</a></li>
 										</ul>
 									</div>
 								</li>
@@ -47,8 +58,8 @@
 							<div class="slide" style="background-image: url('images/hero-04.jpg')"></div>
 						</div>
 						<div class="inner">
-							<div class="logo-container">
-								<img src="images/AgriSolar-logo.jpg" alt="AgriSolar Logo" class="hero-logo" />
+							<div class="logo-container" style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; display: block; margin: 0 auto 1em auto; width: fit-content;">
+								<img src="images/AgriSolar-logo.png" alt="AgriSolar Logo" class="hero-logo" />
 							</div>
 							<h2>AgriSolar</h2>
 							<p>Empowering Nigerian farms with solar irrigation<br />
