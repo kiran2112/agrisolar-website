@@ -78,6 +78,120 @@
 					pointer-events: none;
 				}
 			}
+			
+			/* Testimonial slideshow styles */
+			.testimonial-slideshow {
+				position: relative;
+				background: #f8f9fa;
+				padding: 2em;
+				border-radius: 15px;
+				margin: 2em 0;
+				border-left: 5px solid #4CAF50;
+				overflow: hidden;
+			}
+			
+			.testimonial-slide {
+				opacity: 0;
+				transform: translateX(30px);
+				transition: all 0.8s ease;
+				position: absolute;
+				top: 2em;
+				left: 2em;
+				right: 2em;
+				pointer-events: none;
+			}
+			
+			.testimonial-slide.active {
+				opacity: 1;
+				transform: translateX(0);
+				position: relative;
+				top: auto;
+				left: auto;
+				right: auto;
+				pointer-events: auto;
+			}
+			
+			.testimonial-slide blockquote {
+				font-size: 1.2em;
+				font-style: italic;
+				margin: 0;
+				color: #2d5a2d;
+			}
+			
+			.testimonial-slide .attribution {
+				text-align: right;
+				margin-top: 1em;
+				font-weight: bold;
+				color: #4CAF50;
+			}
+			
+			.testimonial-indicators {
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+				margin-top: 1em;
+			}
+			
+			.testimonial-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #ccc;
+				cursor: pointer;
+				transition: background 0.3s ease;
+			}
+			
+			.testimonial-dot.active {
+				background: #4CAF50;
+			}
+			
+			/* Mission section more link styling to match banner */
+			#one {
+				position: relative;
+			}
+			
+			#one .more {
+				-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
+				-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
+				-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
+				transition: transform 0.75s ease, opacity 0.75s ease;
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+				-ms-transform: translateY(0);
+				transform: translateY(0);
+				border: none;
+				bottom: 0;
+				color: #2d5a2d;
+				font-size: 0.8em;
+				height: 8.5em;
+				left: 50%;
+				letter-spacing: 0.225em;
+				margin-left: -8.5em;
+				opacity: 1;
+				outline: 0;
+				padding-left: 0.225em;
+				position: absolute;
+				text-align: center;
+				text-transform: uppercase;
+				width: 16em;
+				z-index: 1;
+			}
+			
+			#one .more:after {
+				background-image: url("assets/css/images/arrow.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				bottom: 4em;
+				content: '';
+				display: block;
+				height: 1.5em;
+				left: 50%;
+				margin: 0 0 0 -0.75em;
+				position: absolute;
+				width: 1.5em;
+				filter: invert(1) sepia(1) saturate(5) hue-rotate(75deg) brightness(0.5);
+			}
 		</style>
 	</head>
 	<body class="landing is-preload">
@@ -139,35 +253,148 @@
 								<p>We work at the intersection of climate resilience, financial inclusion, and agricultural productivity—bringing sustainable irrigation to the 90% of Nigerian farmland that currently lacks it.</p>
 							</header>
 						</div>
+						<a href="#two" class="more scrolly">Impact</a>
 					</section>
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/hero-01.jpg" alt="Solar-powered irrigation system" /></div><div class="content">
-								<h2>Portable Solar Irrigation<br />
-								Zero Upfront Investment</h2>
-								<p>Our revolutionary revenue-sharing model eliminates financial barriers. Farmers pay nothing upfront and share revenue from increased yields, making solar irrigation accessible to all.</p>
+				<!-- Two - Impact Section -->
+					<section id="two" class="wrapper style2 special">
+						<div class="inner">
+							<header class="major">
+								<h2 style="color: #2d5a2d;">🌱 Impact</h2>
+								<p style="color: #2d5a2d;">Real results from our pilot programs across Nigerian farming communities</p>
+							</header>
+							
+							<!-- Testimonial Slideshow -->
+							<div class="testimonial-slideshow" id="testimonial-slideshow">
+								<div class="testimonial-slide active">
+									<blockquote>
+										"Before AgriSolar, I could only farm during the rainy season. Now I grow vegetables year-round and my income has tripled. The best part? I didn't pay anything upfront – I only share from my increased harvest."
+									</blockquote>
+									<p class="attribution">
+										– Mr. Okeke, Farmer from Anambra State
+									</p>
+								</div>
+								<div class="testimonial-slide">
+									<blockquote>
+										"In Nigeria, no one has a constant energy supply. I am currently using an artificial energy supply even to talk with you. AgriSolar's solar system gives me the power I need for my farm when I need it most."
+									</blockquote>
+									<p class="attribution">
+										– Femi, Farmer
+									</p>
+								</div>
+								<div class="testimonial-indicators">
+									<div class="testimonial-dot active" data-slide="0"></div>
+									<div class="testimonial-dot" data-slide="1"></div>
+								</div>
 							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/hero-02.jpg" alt="Community sharing system" /></div><div class="content">
-								<h2>Community-Based Systems<br />
-								Shareable & Portable</h2>
-								<p>Designed for community use, our portable systems can be shared among multiple farmers, reducing individual costs while improving security and maximizing utilization.</p>
+
+							<!-- Pilot Results -->
+							<div class="pilot-results" style="margin: 3em 0;">
+								<h3 style="color: #2d5a2d;">Pilot Program Results</h3>
+								<div class="row">
+									<div class="col-4 col-12-medium">
+										<div class="stat-box" style="text-align: center; padding: 2em; background: #e8f5e8; border-radius: 10px;">
+											<h2 style="color: #4CAF50; font-size: 2.5em; margin: 0;">3x</h2>
+											<p style="font-weight: bold; margin: 0.5em 0; color: #2d5a2d;">Crop Yield Increase</p>
+											<p style="font-size: 0.9em; color: #2d5a2d;">Average across all pilot farms</p>
+										</div>
+									</div>
+									<div class="col-4 col-12-medium">
+										<div class="stat-box" style="text-align: center; padding: 2em; background: #e8f5e8; border-radius: 10px;">
+											<h2 style="color: #4CAF50; font-size: 2.5em; margin: 0;">₦450K</h2>
+											<p style="font-weight: bold; margin: 0.5em 0; color: #2d5a2d;">Additional Income</p>
+											<p style="font-size: 0.9em; color: #2d5a2d;">Per farmer per year</p>
+										</div>
+									</div>
+									<div class="col-4 col-12-medium">
+										<div class="stat-box" style="text-align: center; padding: 2em; background: #e8f5e8; border-radius: 10px;">
+											<h2 style="color: #4CAF50; font-size: 2.5em; margin: 0;">98%</h2>
+											<p style="font-weight: bold; margin: 0.5em 0; color: #2d5a2d;">Repayment Rate</p>
+											<p style="font-size: 0.9em; color: #2d5a2d;">On revenue-sharing agreements</p>
+										</div>
+									</div>
+								</div>
 							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/hero-03.jpg" alt="Year-round farming" /></div><div class="content">
-								<h2>Year-Round Food Production<br />
-								Climate Resilience</h2>
-								<p>Break free from seasonal limitations and climate unpredictability. Our solar irrigation systems enable continuous farming, increasing food security and farmer income.</p>
+
+							<!-- Field Images -->
+							<div class="field-images" style="margin: 3em 0;">
+								<h3 style="color: #2d5a2d;">From the Field</h3>
+								<div class="row">
+									<div class="col-4 col-12-medium">
+										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
+											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+												<img src="images/pump-in-action.jpg" alt="Solar irrigation system in action" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+											</div>
+											<div style="padding: 1em; background: #f8f9fa;">
+												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Solar System in Action</h4>
+												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Our portable solar irrigation system powering vegetable farms in Kaduna State</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-4 col-12-medium">
+										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
+											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+												<img src="images/agri-pics-02.jpg" alt="Thriving crops with solar irrigation" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+											</div>
+											<div style="padding: 1em; background: #f8f9fa;">
+												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Year-Round Harvest</h4>
+												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Lush tomato crops growing during dry season with consistent solar-powered irrigation</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-4 col-12-medium">
+										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
+											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+												<img src="images/Irrigated-Land-with-green-crops.jpg" alt="Irrigated farmland with green crops" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+											</div>
+											<div style="padding: 1em; background: #f8f9fa;">
+												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Irrigated Green Fields</h4>
+												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Lush green crops thriving with consistent solar-powered irrigation throughout the dry season</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4 col-12-medium">
+										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
+											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+												<img src="images/Olodo-pepper-crop.jpg" alt="Pepper crops in Olodo community" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+											</div>
+											<div style="padding: 1em; background: #f8f9fa;">
+												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Olodo Pepper Harvest</h4>
+												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Successful pepper cultivation in Olodo farming community using AgriSolar irrigation systems</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-4 col-12-medium">
+										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
+											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+												<img src="images/Alabata-farmers-community.jpg" alt="Alabata farmers community" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+											</div>
+											<div style="padding: 1em; background: #f8f9fa;">
+												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Alabata Farmers Community</h4>
+												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Community-based farming approach in Alabata, showcasing collaborative agricultural practices</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-4 col-12-medium">
+										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
+											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+												<img src="images/Olodo-farmers-community.jpg" alt="Olodo farmers community" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+											</div>
+											<div style="padding: 1em; background: #f8f9fa;">
+												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Olodo Farmers Community</h4>
+												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Local farming community in Olodo benefiting from shared solar irrigation technology</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</section>
+						</div>
 					</section>
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
+				<!-- Four -->
+					<section id="four" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
 								<h2>Why Choose AgriSolar for Your Farm?</h2>
@@ -200,12 +427,10 @@
 						<div class="inner">
 							<header>
 								<h2>Ready to Transform Your Farm with Solar?</h2>
-								<p>Join Nigerian farmers who are growing food year-round with zero upfront investment.<br />
-								Our revenue-sharing model makes solar irrigation accessible to everyone.</p>
+								<p>We believe that together, we can create a world that is kinder, more compassionate, and more just. Join us in our mission and help us make a difference today. Thank you for your support!</p>
 							</header>
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Get Free Assessment</a></li>
-								<li><a href="#" class="button fit">Learn About Revenue Sharing</a></li>
+								<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeWju5D06nr4_2d9feVgsSEBXUXnZ1pr0JNh31YbUA69tEuVQ/viewform" class="button fit primary" target="_blank" style="width: auto; min-width: 300px; padding: 1em 2em; margin: 0 auto; display: flex; align-items: center; justify-content: center; white-space: nowrap; text-align: center;"><span class="icon solid fa-handshake" style="margin-right: 0.5em;"></span>Partner with us</a></li>
 							</ul>
 						</div>
 					</section>
@@ -278,6 +503,67 @@
 					
 					// Initial check
 					handleScroll();
+				})();
+			</script>
+			
+			<!-- Testimonial Slideshow Script -->
+			<script>
+				(function() {
+					var slides = document.querySelectorAll('.testimonial-slide');
+					var dots = document.querySelectorAll('.testimonial-dot');
+					var currentSlide = 0;
+					var slideInterval;
+					
+					if (slides.length === 0) return;
+					
+					function showSlide(index) {
+						// Hide all slides
+						slides.forEach(function(slide) {
+							slide.classList.remove('active');
+						});
+						
+						// Remove active from all dots
+						dots.forEach(function(dot) {
+							dot.classList.remove('active');
+						});
+						
+						// Show current slide
+						slides[index].classList.add('active');
+						dots[index].classList.add('active');
+					}
+					
+					function nextSlide() {
+						currentSlide = (currentSlide + 1) % slides.length;
+						showSlide(currentSlide);
+					}
+					
+					function startSlideshow() {
+						slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+					}
+					
+					function stopSlideshow() {
+						clearInterval(slideInterval);
+					}
+					
+					// Add click handlers to dots
+					dots.forEach(function(dot, index) {
+						dot.addEventListener('click', function() {
+							currentSlide = index;
+							showSlide(currentSlide);
+							stopSlideshow();
+							startSlideshow(); // Restart the timer
+						});
+					});
+					
+					// Pause slideshow on hover
+					var testimonialContainer = document.getElementById('testimonial-slideshow');
+					if (testimonialContainer) {
+						testimonialContainer.addEventListener('mouseenter', stopSlideshow);
+						testimonialContainer.addEventListener('mouseleave', startSlideshow);
+					}
+					
+					// Start the slideshow
+					startSlideshow();
 				})();
 			</script>
 
