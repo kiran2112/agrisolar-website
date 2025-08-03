@@ -21,6 +21,63 @@
 			#header {
 				transition: background-color 0.3s ease;
 			}
+			
+			/* Floating logo styles */
+			.floating-logo {
+				position: fixed;
+				top: 30px;
+				left: 30px;
+				z-index: 1000;
+				background: rgba(255, 255, 255, 0.95);
+				padding: 15px;
+				border-radius: 15px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+				transition: all 0.8s ease;
+				backdrop-filter: blur(10px);
+				opacity: 1;
+				transform: translateY(0);
+			}
+			
+			.floating-logo img {
+				height: 60px;
+				width: auto;
+				transition: all 0.8s ease;
+			}
+			
+			/* Logo when scrolled - fade out and disappear */
+			.floating-logo.scrolled {
+				opacity: 0;
+				transform: translateY(-20px);
+				pointer-events: none;
+			}
+			
+			/* Hide the original center logo */
+			.banner-center-logo {
+				display: none;
+			}
+			
+			/* Adjust banner content positioning */
+			#banner .inner {
+				padding-top: 6em;
+			}
+			
+			@media screen and (max-width: 768px) {
+				.floating-logo {
+					top: 20px;
+					left: 20px;
+					padding: 10px;
+				}
+				
+				.floating-logo img {
+					height: 45px;
+				}
+				
+				.floating-logo.scrolled {
+					opacity: 0;
+					transform: translateY(-15px);
+					pointer-events: none;
+				}
+			}
 		</style>
 	</head>
 	<body class="landing is-preload">
@@ -49,6 +106,11 @@
 						</nav>
 					</header>
 
+				<!-- Floating Logo -->
+				<div class="floating-logo" id="floating-logo">
+					<img src="images/AgriSolar-logo-with-background.png" alt="AgriSolar Logo" />
+				</div>
+
 				<!-- Banner -->
 					<section id="banner">
 						<div class="banner-slideshow">
@@ -58,9 +120,6 @@
 							<div class="slide" style="background-image: url('images/hero-04.jpg')"></div>
 						</div>
 						<div class="inner">
-							<div class="logo-container" style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; display: block; margin: 0 auto 1em auto; width: fit-content;">
-								<img src="images/AgriSolar-logo.png" alt="AgriSolar Logo" class="hero-logo" />
-							</div>
 							<h2>AgriSolar</h2>
 							<p>Empowering Nigerian farms with solar irrigation<br />
 							no upfront cost, just shared harvest</p>
@@ -193,6 +252,34 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<!-- Floating Logo Script -->
+			<script>
+				(function() {
+					var floatingLogo = document.getElementById('floating-logo');
+					var banner = document.getElementById('banner');
+					
+					if (!floatingLogo || !banner) return;
+					
+					function handleScroll() {
+						var scrollY = window.scrollY;
+						var bannerHeight = banner.offsetHeight;
+						var scrollThreshold = bannerHeight * 0.3; // Start fading at 30% of banner height
+						
+						if (scrollY > scrollThreshold) {
+							floatingLogo.classList.add('scrolled');
+						} else {
+							floatingLogo.classList.remove('scrolled');
+						}
+					}
+					
+					// Add scroll event listener
+					window.addEventListener('scroll', handleScroll);
+					
+					// Initial check
+					handleScroll();
+				})();
+			</script>
 
 	</body>
 </html>
