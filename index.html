@@ -131,6 +131,58 @@
 				padding-top: 6em;
 			}
 			
+			/* Banner navigation buttons styling */
+			#banner .more {
+				-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
+				-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
+				-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
+				transition: transform 0.75s ease, opacity 0.75s ease;
+				-moz-transform: translateY(0);
+				-webkit-transform: translateY(0);
+				-ms-transform: translateY(0);
+				transform: translateY(0);
+				border: none;
+				bottom: 0;
+				color: rgba(255, 255, 255, 0.9);
+				font-size: 0.8em;
+				height: 8.5em;
+				letter-spacing: 0.225em;
+				opacity: 1;
+				outline: 0;
+				padding-left: 0.225em;
+				position: absolute;
+				text-align: center;
+				text-transform: uppercase;
+				width: 16em;
+				z-index: 1;
+			}
+			
+			#banner .more:hover {
+				color: #ffffff;
+			}
+			
+			#banner .more:after {
+				background-image: url("assets/css/images/arrow.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				bottom: 4em;
+				content: '';
+				display: block;
+				height: 1.5em;
+				left: 50%;
+				margin: 0 0 0 -0.75em;
+				position: absolute;
+				width: 1.5em;
+				filter: invert(0.7) sepia(1) saturate(2) hue-rotate(80deg) brightness(1.5);
+			}
+			
+			@media screen and (max-width: 980px) {
+				#banner .more {
+					display: none;
+				}
+			}
+			
 			@media screen and (max-width: 768px) {
 				.floating-logo {
 					top: 20px;
@@ -215,52 +267,166 @@
 				background: #4CAF50;
 			}
 			
-			/* Mission section more link styling to match banner */
-			#one {
-				position: relative;
+			/* Feature cards with images styling */
+			.features-with-images {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3em;
+				margin: 3em 0;
+				max-width: 1200px;
+				margin-left: auto;
+				margin-right: auto;
 			}
 			
-			#one .more {
-				-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
-				-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
-				-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
-				transition: transform 0.75s ease, opacity 0.75s ease;
-				-moz-transform: translateY(0);
-				-webkit-transform: translateY(0);
-				-ms-transform: translateY(0);
-				transform: translateY(0);
-				border: none;
-				bottom: 0;
+			.feature-card {
+				background: #f8f9fa;
+				border-radius: 15px;
+				overflow: hidden;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				min-height: 450px;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.feature-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+			}
+			
+			.feature-image {
+				width: 100%;
+				height: 250px;
+				background: #f0f0f0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+			}
+			
+			.feature-image img {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: cover;
+			}
+			
+			.feature-content {
+				padding: 2em;
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.feature-content .icon {
+				font-size: 2.5em;
+				color: #4CAF50;
+				margin-bottom: 0.75em;
+			}
+			
+			.feature-content h3 {
 				color: #2d5a2d;
-				font-size: 0.8em;
-				height: 8.5em;
-				left: 50%;
-				letter-spacing: 0.225em;
-				margin-left: -8.5em;
-				opacity: 1;
-				outline: 0;
-				padding-left: 0.225em;
-				position: absolute;
-				text-align: center;
-				text-transform: uppercase;
-				width: 16em;
-				z-index: 1;
+				margin: 0 0 1em 0;
+				font-size: 1.4em;
 			}
 			
-			#one .more:after {
-				background-image: url("assets/css/images/arrow.svg");
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: contain;
-				bottom: 4em;
-				content: '';
-				display: block;
-				height: 1.5em;
-				left: 50%;
-				margin: 0 0 0 -0.75em;
+			.feature-content p {
+				color: #2d5a2d;
+				margin: 0;
+				font-size: 1em;
+				line-height: 1.7;
+				flex-grow: 1;
+			}
+			
+			@media screen and (max-width: 980px) {
+				.features-with-images {
+					grid-template-columns: 1fr;
+					gap: 2em;
+					margin: 2em 0;
+				}
+				
+				.feature-card {
+					min-height: 400px;
+				}
+				
+				.feature-image {
+					height: 220px;
+				}
+				
+				.feature-content {
+					padding: 1.5em;
+				}
+				
+				.feature-content .icon {
+					font-size: 2em;
+				}
+				
+				.feature-content h3 {
+					font-size: 1.2em;
+				}
+				
+				.feature-content p {
+					font-size: 0.9em;
+				}
+			}
+			
+			/* Mission, Impact, and Solution sections navigation buttons */
+			#one, #two, #four {
+				position: relative;
+				padding-bottom: 6em; /* Add space for navigation buttons */
+			}
+			
+			.section-navigation {
+				display: flex;
+				justify-content: center;
+				gap: 2em;
+				margin-top: 3em;
 				position: absolute;
-				width: 1.5em;
-				filter: invert(1) sepia(1) saturate(5) hue-rotate(75deg) brightness(0.5);
+				bottom: 2em;
+				left: 0;
+				right: 0;
+			}
+			
+			.section-navigation .nav-button {
+				display: inline-block;
+				padding: 0.75em 1.5em;
+				border: 2px solid #2d5a2d;
+				background: transparent;
+				color: #2d5a2d;
+				text-decoration: none;
+				border-radius: 25px;
+				font-size: 0.9em;
+				font-weight: bold;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				transition: all 0.3s ease;
+				min-width: 120px;
+				text-align: center;
+			}
+			
+			.section-navigation .nav-button:hover {
+				background: #2d5a2d;
+				color: #ffffff;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 15px rgba(45, 90, 45, 0.3);
+			}
+			
+			@media screen and (max-width: 980px) {
+				#one, #two, #four {
+					padding-bottom: 4em; /* Reduce padding on mobile */
+				}
+				
+				.section-navigation {
+					flex-direction: column;
+					align-items: center;
+					gap: 1em;
+					margin-top: 2em;
+				}
+				
+				.section-navigation .nav-button {
+					min-width: 200px;
+					font-size: 0.8em;
+					padding: 0.6em 1.2em;
+				}
 			}
 		</style>
 	</head>
@@ -311,7 +477,9 @@
 								<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeWju5D06nr4_2d9feVgsSEBXUXnZ1pr0JNh31YbUA69tEuVQ/viewform" class="button" target="_blank"><span class="icon solid fa-handshake"></span> Partner with us</a></li>
 							</ul>
 						</div>
-						<a href="#one" class="more scrolly">Our Mission</a>
+						<a href="#one" class="more scrolly" style="left: 25%; margin-left: -8.5em;">Our Mission</a>
+						<a href="#two" class="more scrolly" style="left: 50%; margin-left: -8.5em;">Impact</a>
+						<a href="#four" class="more scrolly" style="left: 75%; margin-left: -8.5em;">Our Solution</a>
 					</section>
 
 					<section id="one" class="wrapper style1 special">
@@ -322,7 +490,10 @@
 								<p>We work at the intersection of climate resilience, financial inclusion, and agricultural productivity—bringing sustainable irrigation to the 90% of Nigerian farmland that currently lacks it.</p>
 							</header>
 						</div>
-						<a href="#two" class="more scrolly">Impact</a>
+						<div class="section-navigation">
+							<a href="#two" class="nav-button scrolly">Impact</a>
+							<a href="#four" class="nav-button scrolly">Our Solution</a>
+						</div>
 					</section>
 
 				<!-- Two - Impact Section -->
@@ -379,115 +550,73 @@
 										– Femi, Farmer
 									</p>
 								</div>
-								<div class="testimonial-indicators">
-									<div class="testimonial-dot active" data-slide="0"></div>
-									<div class="testimonial-dot" data-slide="1"></div>
-								</div>
+							<div class="testimonial-indicators">
+								<div class="testimonial-dot active" data-slide="0"></div>
+								<div class="testimonial-dot" data-slide="1"></div>
 							</div>
-
-							<!-- Field Images -->
-							<div class="field-images" style="margin: 3em 0;">
-								<h3 style="color: #2d5a2d;">From the Field</h3>
-								<div class="row">
-									<div class="col-4 col-12-medium">
-										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
-											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-												<img src="images/pump-in-action.jpg" alt="Solar irrigation system in action" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-											</div>
-											<div style="padding: 1em; background: #f8f9fa;">
-												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Solar System in Action</h4>
-												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Our portable solar irrigation system powering vegetable farms in Kaduna State</p>
-											</div>
-										</div>
+						</div>
+						<div class="section-navigation">
+							<a href="#one" class="nav-button scrolly">Our Mission</a>
+							<a href="#four" class="nav-button scrolly">Our Solution</a>
+						</div>
+					</section>				<!-- Four -->
+					<section id="four" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Our Solution</h2>
+								<p style="color: #4CAF50;">Our innovative approach addresses the unique challenges of Nigerian smallholder farmers,<br />
+								combining proven technology with a revolutionary financing model.</p>
+							</header>
+							
+							<div class="features-with-images">
+								<div class="feature-card">
+									<div class="feature-image">
+										<img src="images/Irrigated-Land-with-green-crops.jpg" alt="Thriving crops with solar irrigation" />
 									</div>
-									<div class="col-4 col-12-medium">
-										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
-											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-												<img src="images/agri-pics-02.jpg" alt="Thriving crops with solar irrigation" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-											</div>
-											<div style="padding: 1em; background: #f8f9fa;">
-												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Year-Round Harvest</h4>
-												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Lush tomato crops growing during dry season with consistent solar-powered irrigation</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-4 col-12-medium">
-										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
-											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-												<img src="images/Irrigated-Land-with-green-crops.jpg" alt="Irrigated farmland with green crops" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-											</div>
-											<div style="padding: 1em; background: #f8f9fa;">
-												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Irrigated Green Fields</h4>
-												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Lush green crops thriving with consistent solar-powered irrigation throughout the dry season</p>
-											</div>
-										</div>
+									<div class="feature-content">
+										<div class="icon solid fa-handshake"></div>
+										<h3>Revenue-sharing—no upfront cost</h3>
+										<p>Our innovative financing model eliminates financial barriers. No initial investment required—farmers only pay from increased yields and profits.</p>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-4 col-12-medium">
-										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
-											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-												<img src="images/Olodo-pepper-crop.jpg" alt="Pepper crops in Olodo community" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-											</div>
-											<div style="padding: 1em; background: #f8f9fa;">
-												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Olodo Pepper Harvest</h4>
-												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Successful pepper cultivation in Olodo farming community using AgriSolar irrigation systems</p>
-											</div>
-										</div>
+								
+								<div class="feature-card">
+									<div class="feature-image">
+										<img src="images/pump-in-action.jpg" alt="Solar irrigation system in action" />
 									</div>
-									<div class="col-4 col-12-medium">
-										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
-											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-												<img src="images/Alabata-farmers-community.jpg" alt="Alabata farmers community" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-											</div>
-											<div style="padding: 1em; background: #f8f9fa;">
-												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Alabata Farmers Community</h4>
-												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Community-based farming approach in Alabata, showcasing collaborative agricultural practices</p>
-											</div>
-										</div>
+									<div class="feature-content">
+										<div class="icon solid fa-dolly-flatbed"></div>
+										<h3>Portable and secure for scattered plots</h3>
+										<p>Our mobile solar irrigation systems can be easily transported and secured between scattered farm plots, maximizing utilization and protecting your investment.</p>
 									</div>
-									<div class="col-4 col-12-medium">
-										<div class="image-card" style="border-radius: 10px; overflow: hidden; margin-bottom: 1em; background: #f8f9fa;">
-											<div style="width: 100%; height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-												<img src="images/Olodo-farmers-community.jpg" alt="Olodo farmers community" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-											</div>
-											<div style="padding: 1em; background: #f8f9fa;">
-												<h4 style="margin: 0 0 0.5em 0; color: #2d5a2d;">Olodo Farmers Community</h4>
-												<p style="margin: 0; font-size: 0.9em; color: #2d5a2d;">Local farming community in Olodo benefiting from shared solar irrigation technology</p>
-											</div>
-										</div>
+								</div>
+								
+								<div class="feature-card">
+									<div class="feature-image">
+										<img src="images/Alabata-farmers-community.jpg" alt="Alabata farmers community" />
+									</div>
+									<div class="feature-content">
+										<div class="icon solid fa-users"></div>
+										<h3>Designed for community sharing</h3>
+										<p>Built for collective use, our systems can be shared among multiple farmers in a community, reducing individual costs and improving accessibility.</p>
+									</div>
+								</div>
+								
+								<div class="feature-card">
+									<div class="feature-image">
+										<img src="images/hero-04.jpg" alt="Irrigated farmland with green crops" />
+									</div>
+									<div class="feature-content">
+										<div class="icon solid fa-tools"></div>
+										<h3>Training & maintenance support</h3>
+										<p>Comprehensive training programs and ongoing technical support ensure farmers get maximum benefit and long-term reliability from their solar irrigation systems.</p>
 									</div>
 								</div>
 							</div>
 						</div>
-					</section>
-
-				<!-- Four -->
-					<section id="four" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Why Choose AgriSolar for Your Farm?</h2>
-								<p style="color: #4CAF50;">Our innovative approach addresses the unique challenges of Nigerian smallholder farmers,<br />
-								combining proven technology with a revolutionary financing model.</p>
-							</header>
-							<ul class="features">
-								<li class="icon solid fa-handshake">
-									<h3>Revenue-sharing—no upfront cost</h3>
-									<p>Our innovative financing model eliminates financial barriers. No initial investment required—farmers only pay from increased yields and profits.</p>
-								</li>
-								<li class="icon solid fa-dolly-flatbed">
-									<h3>Portable and secure for scattered plots</h3>
-									<p>Our mobile solar irrigation systems can be easily transported and secured between scattered farm plots, maximizing utilization and protecting your investment.</p>
-								</li>
-								<li class="icon solid fa-users">
-									<h3>Designed for community sharing</h3>
-									<p>Built for collective use, our systems can be shared among multiple farmers in a community, reducing individual costs and improving accessibility.</p>
-								</li>
-								<li class="icon solid fa-tools">
-									<h3>Training & maintenance support</h3>
-									<p>Comprehensive training programs and ongoing technical support ensure farmers get maximum benefit and long-term reliability from their solar irrigation systems.</p>
-								</li>
-							</ul>
+						<div class="section-navigation">
+							<a href="#one" class="nav-button scrolly">Our Mission</a>
+							<a href="#two" class="nav-button scrolly">Impact</a>
 						</div>
 					</section>
 
